@@ -3,15 +3,17 @@
   "version": "1.0.0",
   "description": "NICI Online Storefront",
   "private": false,
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/yoonic/nicistore.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yoonic/nicistore.git"
   },
   "main": "index.js",
   "scripts": {
     "build": "rm -rf static/dist && webpack --stats --progress --config ./webpack/prod.config.js",
     "dev": "NODE_ENV=development DEBUG=nicistore node index",
-    "prod": "NODE_ENV=production DEBUG=nicistore node index"
+    "prod": "NODE_ENV=production DEBUG=nicistore node index",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "author": "André Tavares",
   "engines": {
@@ -20,11 +22,11 @@
   },
   "dependencies": {
     "async": "1.5.2",
-    "babel": "5.8.38",
+    "babel": "6.0.0",
     "css-loader": "0.18.0",
     "debug": "2.2.0",
     "expose-loader": "0.7.0",
-    "express": "4.13.3",
+    "express": "4.15.5",
     "file-loader": "0.8.4",
     "fluxible": "0.5.7",
     "fluxible-addons-react": "0.1.8",
@@ -32,7 +34,7 @@
     "intl-locales-supported": "1.0.0",
     "marked": "^0.3.5",
     "moment": "^2.13.0",
-    "node-sass": "3.3.2",
+    "node-sass": "3.5.1",
     "react": "0.13.3",
     "react-ga": "1.2.0",
     "react-intl": "1.2.2",
@@ -40,7 +42,8 @@
     "sass-loader": "2.0.1",
     "serialize-javascript": "1.2.0",
     "style-loader": "0.12.4",
-    "superagent": "1.8.3"
+    "superagent": "1.8.3",
+    "snyk": "^1.105.0"
   },
   "devDependencies": {
     "autoprefixer-loader": "3.1.0",
@@ -52,5 +55,6 @@
     "webpack": "1.12.15",
     "webpack-dev-server": "1.10.1",
     "webpack-stats-plugin": "0.1.1"
-  }
+  },
+  "snyk": true
 }
