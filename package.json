@@ -3,15 +3,17 @@
   "version": "1.0.0",
   "description": "NICI Online Storefront",
   "private": false,
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/yoonic/nicistore.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yoonic/nicistore.git"
   },
   "main": "index.js",
   "scripts": {
     "build": "rm -rf static/dist && webpack --stats --progress --config ./webpack/prod.config.js",
     "dev": "NODE_ENV=development DEBUG=nicistore node index",
-    "prod": "NODE_ENV=production DEBUG=nicistore node index"
+    "prod": "NODE_ENV=production DEBUG=nicistore node index",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "author": "André Tavares",
   "engines": {
@@ -40,7 +42,8 @@
     "sass-loader": "2.0.1",
     "serialize-javascript": "1.2.0",
     "style-loader": "0.12.4",
-    "superagent": "1.8.3"
+    "superagent": "1.8.3",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "autoprefixer-loader": "3.1.0",
@@ -52,5 +55,6 @@
     "webpack": "1.12.15",
     "webpack-dev-server": "1.10.1",
     "webpack-stats-plugin": "0.1.1"
-  }
+  },
+  "snyk": true
 }
